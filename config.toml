@@ -1,25 +1,33 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
-theme = "my_gohugo-theme"
-themesDir = "./themes"
+baseURL       = "http://example.org/"
+languageCode  = "en-us"
+title         = "My New Hugo Site"
+theme         = "my_gohugo-theme"
+themesDir     = "./themes"
 
 [params]
-  title       = "Test Hugo"
+  title       = "Mairie de Strasbourg"
   subtitle    = "My Hugo Site"
 
-  cover       = "img/blog-cover.jpg"
+  cover       = "img/jumbotron.jpg"
   description = "Here is a description of your site."
 
-  logo = "img/hugo-logo.png"
-  navbarLogo = "img/favicon.ico"
+  logo        = "img/hugo-logo.png"
+  navbarLogo  = "img/favicon.ico"
 
-  themeColor = "warning"
+  themeColor  = "light"
+
+  addressStreet = "4 rue du Dôme"
+  addressCity   = "67000 Strasbourg"
+  telNumber     = "0677889922"
+
+  mail = "manuel.konrath@gmail.com"
+
 
 [[menu.main]]
   name = "Home"
   url = "/"
   weight = 200
+
 
 [[menu.main]]
   name = "Associations"

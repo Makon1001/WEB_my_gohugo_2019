@@ -1,11 +1,14 @@
 {{ partial "head.html" . }}
 
 {{ partial "header.html" . }}
-
-<h1><img src="/img/associations/{{.Params.photo}}" alt="image de l'association {{.Title}}"> {{ .Title }}</h1>
-<p>Domaine : {{ .Params.domain}}</p>
-<hr>
-<p>Description : {{.Description}}</p>
-
-
+<div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-12">
+            <h1><img src="/img/associations/{{.Params.photo}}" alt="image de l'association {{.Title}}"> {{ .Title }}</h1>
+            <p>Domaine : {{ .Params.domain}}</p>
+            <hr>
+            <p>Description : {{.Description}}</p>
+        </div>
+    </div>
+</div>
 {{ partial "footer.html" .}}

@@ -4,17 +4,19 @@
 
 
 <div class="container">
-  <div class="row">
+  <div class="row justify-content-center">
     {{ range .Site.RegularPages}}
       {{ if eq .Type "associations"}}
-      <div class="card col-12 col-sm-6 col-md-4 col-lg-3 mt-5" style="width: 18rem;">
-        <img src="../img/associations/{{ .Params.photo}}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{.Title}}</h5>
-          <p class="card-text">{{.Description}}</p>
-          <a class="btn btn-primary" href="{{ .URL }}">En savoir plus</a>
+      <a href="{{.URL}}">
+        <div class="card col-12 col-sm-6 col-md-4 col-lg-3 mt-5 ml-1" style="width: 18rem;">
+          <img src="../img/associations/{{ .Params.photo}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{.Title}}</h5>
+            <p class="card-text">{{.Description}}</p>
+            <a class="btn btn-warning" href="{{ .URL }}">En savoir plus</a>
+          </div>
         </div>
-      </div>
+      </a>
     {{ end }}
     {{ end }}
   </div>

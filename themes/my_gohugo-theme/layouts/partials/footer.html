@@ -1,3 +1,4 @@
+<hr class="m-5"/>
 <footer class="container-fluide bg-{{.Site.Params.themeColor}} pt-5 pb-5">
   <div class="row">
     <div class="col-4 pl-5">
@@ -5,14 +6,14 @@
     </div>
     <div class="col-3 ml-3 text-info d-flex align-items-center">
       <div>
-        <h2>Epitech</h2>
-        <p>4 rue du dôme</p>
-        <p>67670 Strasbourg</p>
-        <a href="tel:+33677889955">0677889955</a>    
+        <h2>{{.Site.Params.Title}}</h2>
+        <p>{{.Site.Params.addressStreet}}</p>
+        <p>{{.Site.Params.addressCity}}</p>
+        <a href="tel:{{.Site.Params.telNumber}}">{{.Site.Params.telNumber}}</a>    
       </div>
     </div>
   <div class="col-4 ml-3">
-  <form action="https://formspree.io/manuel.konrath@gmail.com" method="POST">
+  <form action="https://formspree.io/{{.Site.Params.mail}}" method="POST">
     <div>
     <div class="form-group row">
       <label for="senderMail" class="col-sm-2 col-form-label">Email</label>
@@ -40,6 +41,9 @@
   </div>
   </form>
 </div>
+</div>
+<div class="row d-flex justify-content-center">
+  <p class="col-3">COPYRIGHT 2019 - Epitech ... </p>
 </div>
 </footer>
 

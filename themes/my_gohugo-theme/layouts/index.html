@@ -4,8 +4,8 @@
 
 
 <div class="container-fluid">
-  <div class="row ml-5 mt-5">
-    <div class="col-4">
+  <div class="row" >
+    <div class="col-3 p-0 aside">
       {{ partial "aside.html" . }}
     </div>
     {{ range first 10 (where .Site.RegularPages "Section" "events") }}
