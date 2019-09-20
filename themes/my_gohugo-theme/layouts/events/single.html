@@ -1,0 +1,10 @@
+{{ partial "head.html" . }}
+
+{{ partial "header.html" . }}
+{{if eq .Draft true}}
+<h1>Sorry, this event is in construction.</h1>
+{{else}}
+<h1>{{ .Title }}</h1>
+{{end}}
+
+{{ partial "footer.html" .}}

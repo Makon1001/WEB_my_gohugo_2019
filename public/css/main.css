@@ -1,0 +1,9 @@
+body {
+  color: #151515;
+}
+
+.aside {
+  background-color: #EEE;
+  border-right: 1px solid #151515;
+  margin-right: 20px;
+}

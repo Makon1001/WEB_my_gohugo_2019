@@ -1,0 +1,11 @@
+{{ partial "head.html" . }}
+
+{{ partial "header.html" . }}
+
+{{ range .Site.RegularPages}}
+  {{ if eq .Type "municipal_council"}}
+   <li><a href="{{ .Permalink }}">{{ .Params.firstName }} {{upper .Params.lastName}}</a></li>
+  {{ end }}
+{{ end }}
+
+{{ partial "footer.html" .}}

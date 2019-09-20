@@ -1,0 +1,14 @@
+<div class="aside">
+    <div class="search" id="search">
+        <input type="text" placeholder="Search site..." v-model="txt" @keyup="search()" @blur="close()" maxlength="50">
+        <div class="search-results" :style="{'display': showresult?'block':'none'}">
+            <a v-for="item in result" :href="item.url">{{ printf "{{ item.title }}" }}</a>
+        </div>
+    </div>
+<ul>
+  {{ range (where .Site.RegularPages "Type" "associations")}}
+    {{if eq .Params.important true}}
+    <li><a href="{{.URL}}">{{ .Name}}</a></li>
+  {{ end }}{{end}}
+</ul>
+</div>

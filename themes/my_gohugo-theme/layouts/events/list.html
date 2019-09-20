@@ -1,0 +1,11 @@
+{{ partial "head.html" . }}
+
+{{ partial "header.html" . }}
+
+
+{{ $url :=  path.Dir  .Permalink}}
+{{ $url }}
+
+{{ partial "allEvents.html" .}}
+
+{{ partial "footer.html" .}}

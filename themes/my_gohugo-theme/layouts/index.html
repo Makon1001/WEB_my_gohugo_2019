@@ -1,0 +1,29 @@
+{{ partial "head.html" . }}
+
+{{ partial "header.html" . }}
+
+
+<div class="container-fluid">
+  <div class="row ml-5 mt-5">
+    <div class="col-4">
+      {{ partial "aside.html" . }}
+    </div>
+    {{ range first 10 (where .Site.RegularPages "Section" "events") }}
+     <div class="card" style="width: 18rem;">
+        <img src="/img/{{.Params.photos}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{{ .URL }}">{{.Title }}</a></h5>
+          <p class="card-text">
+            Label : {{.Params.Address.label}} <br>
+            When : {{dateFormat "Monday, Jan 2, 2006" .Params.when}}
+            {{if .Params.association }}
+            <p>Association : {{.Params.Association}}</p>
+            {{end}}
+          </p>
+          <a href="{{ .URL }}" class="btn btn-primary">Learn more ... </a>
+        </div>
+      </div>
+  {{end}}
+  </div>
+</div>
+{{ partial "footer.html" .}}

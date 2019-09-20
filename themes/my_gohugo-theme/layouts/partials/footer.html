@@ -1,0 +1,119 @@
+<footer class="container-fluide bg-{{.Site.Params.themeColor}} pt-5 pb-5">
+  <div class="row">
+    <div class="col-4 pl-5">
+      <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2639.3827923172576!2d7.747803850873571!3d48.58336902788436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4796c852318fea29%3A0xa2ac695fe3d9df6f!2s4%20Rue%20du%20D%C3%B4me%2C%2067000%20Strasbourg!5e0!3m2!1sfr!2sfr!4v1568902522570!5m2!1sfr!2sfr" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe></p>
+    </div>
+    <div class="col-3 ml-3 text-info d-flex align-items-center">
+      <div>
+        <h2>Epitech</h2>
+        <p>4 rue du dôme</p>
+        <p>67670 Strasbourg</p>
+        <a href="tel:+33677889955">0677889955</a>    
+      </div>
+    </div>
+  <div class="col-4 ml-3">
+  <form action="https://formspree.io/manuel.konrath@gmail.com" method="POST">
+    <div>
+    <div class="form-group row">
+      <label for="senderMail" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="senderMail" placeholder="Email" name="Email">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="subject" class="col-sm-2 col-form-label">Subject</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="subject" placeholder="subject" name ="Subject">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="message" class="col-sm-2 col-form-label">Message</label>
+      <div class="col-sm-10">
+        <textarea class="form-control" id="message" name="Message"></textarea>
+    </div>
+    </div>
+    <div class="form-group row ">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary">Send</button>
+      </div>
+    </div>
+  </div>
+  </form>
+</div>
+</div>
+</footer>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+    <!-- modules -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js" integrity="sha256-FtWfRI+thWlNz2sB3SJbwKx5PgMyKIVgwHCTwa3biXc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+
+<script>
+let vuesearch = new Vue({
+    el: '#search', // div ID
+    data: {
+        txt: '', // will contain the text written by user
+        timeoutID: 0, // used to detect when the user stopped typing
+        showresult: false, // show the result dropdown, or not
+        result: {}, // results to display, as JSON : {[ {"url":"", "title":""},..] }
+        bdd: [] // will contain the full JSON file created by HUGO
+        },
+    mounted: function() {
+        // loading the full JSON to 'bdd'
+        axios.get('{{ with .Site.GetPage "/search.md" }}{{ .Permalink }}{{ end }}')
+        .then(function (response) {
+            vuesearch.bdd = response.data.results;
+            })
+        .catch(function (error) {
+            console.log(error);
+            });
+        },
+    methods: {
+        close: function() {
+            // Close the dropdown when the input search loses focus
+            // with a 300ms delay to let time for the click on link to work
+            setTimeout(function() {
+                vuesearch.showresult = false;
+                vuesearch.txt = '';
+                }, 300);
+            },
+        search: function() {
+            // we will search when the user stopped typing for 500ms
+            clearTimeout(this.timeoutID);
+            this.timeoutID = setTimeout(this.dosearch, 500);
+            },
+        dosearch: function() {
+            // do the search in the 'bdd'
+            this.result = []; // clear previous result
+            let words = this.txt.split(' '); // split typed text with spaces
+            let words2 = []; // words that will be searched
+            words.forEach(function(element) { // to skip empty words, if multiple spaces typed (i.e "a  b c")
+                if(element) {words2.push(element);}
+                });
+            let r;
+            let resultmp;
+            words2.forEach(function(e) { // for each word
+                r = vuesearch.bdd.filter(p => p.content.indexOf(e.toLowerCase()) !== -1);
+                if(vuesearch.result.length===0) {vuesearch.result = r.slice(); return;}
+                resultmp = [];
+                vuesearch.result.forEach(function(all1) {
+                    r.forEach(function(all2) { // we want AND for words
+                        if(all1.url===all2.url) {resultmp.push(all1);}
+                        });
+                    });
+                vuesearch.result = resultmp.slice();
+                });
+            this.result = this.result.slice(0, 10); // 10 results max
+            this.showresult = (this.result.length>0); // show results if we have one or more
+            } // dosearch
+        } // methods
+    }); // Vue
+</script>
+  </body>
+
+</html>

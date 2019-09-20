@@ -1,0 +1,64 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "My New Hugo Site"
+theme = "my_gohugo-theme"
+themesDir = "./themes"
+
+[params]
+  title       = "Test Hugo"
+  subtitle    = "My Hugo Site"
+
+  cover       = "img/blog-cover.jpg"
+  description = "Here is a description of your site."
+
+  logo = "img/hugo-logo.png"
+  navbarLogo = "img/favicon.ico"
+
+  themeColor = "warning"
+
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 200
+
+[[menu.main]]
+  name = "Associations"
+  url = "/associations"
+  weight = 100
+
+
+[[menu.main]]
+  name = "Municipal Council"
+  identifier = "council"
+  url = "/municipal_council"
+  weight = 99
+
+
+[[menu.main]]
+  name = "Events"
+  identifier = "events"
+  weight = 95
+
+  [[menu.main]]
+    name = "All Events"
+    parent = "events"
+    url = "/events"
+    weight = 50
+
+  [[menu.main]]
+    name = "Upcoming Events"
+    parent = "events"
+    url = "/events/upcoming_events"
+    weight = 50
+
+  [[menu.main]]
+    name = "Archived Events"
+    parent = "events"
+    url = "/archived-Events"
+    weight = 45
+
+  [[menu.main]]
+    name = "Calendar"
+    parent = "events"
+    url = "/calendar"
+    weight = 30
