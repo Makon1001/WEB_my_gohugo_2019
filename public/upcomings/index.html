@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+
+    <title>My goHugo</title>
+
+    <style>
+        .search {
+            position: relative;
+            display: inline-block;
+            }
+        .search-results {
+            display: none;
+            background-color: #fff;
+            position: absolute;
+            min-width: 100px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            }
+        .search-results a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            }
+        .search-results a:hover {background-color: #ddd;}
+    </style>
+
+  </head>
+  <body>
+
+
+<header>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top container-fluide">
+      
+      <a class="navbar-brand" href="/">
+        
+          <img class="site-logo" src="http://example.org/img/favicon.ico" alt="Mairie de Paris" />
+        
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto"> 
+        
+        
+        
+        
+          <li class="nav-item " role="menuitem">
+            <a class="nav-link " href="/">Home</a>
+          </li>
+        
+        
+        
+          <li class="nav-item " role="menuitem">
+            <a class="nav-link " href="/associations">Associations</a>
+          </li>
+        
+        
+        
+          <li class="nav-item " role="menuitem">
+            <a class="nav-link " href="/municipal_council">Municipal Council</a>
+          </li>
+        
+        
+        
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Events
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              
+                <a class="dropdown-item " href="/calendar">Calendar</a>
+              
+                <a class="dropdown-item " href="/archives/archived">Archived Events</a>
+              
+                <a class="dropdown-item " href="/events">All Events</a>
+              
+                <a class="dropdown-item " href="/upcomings/upcoming">Upcoming Events</a>
+              
+            </div>
+          </li>
+        
+        
+        </ul>
+      </div>
+    </nav>
+
+    
+    <div class="sidenav d-xs-none">
+      <div class="pt-2 pl-2">
+    <div class="search" id="search">
+        <input class="inputSearch" type="text" placeholder="Search site..." v-model="txt" @keyup="search()" @blur="close()" maxlength="50">
+        <div class="search-results" :style="{'display': showresult?'block':'none'}">
+            <a v-for="item in result" :href="item.url">{{ item.title }}</a>
+        </div>
+    </div>
+<ul>
+  
+</ul>
+</div>
+
+    </div>
+  
+    
+
+  <div class="jumbotron jumbotronMain mb-0 d-flex justify-content-center"
+    
+      style="background-image: url(http://example.org/img/jumbotron.jpg)"
+    >
+    <div container d-flex justify-content-center>
+      <h1 class="site-title">
+      
+        <img src="http://example.org/img/hugo-logo.png" alt="Mairie de Paris" />
+      
+      </h1>
+      <h2 class="text-light">Retrouvez tous nos evenements</h2>
+    </div>
+  </div>
+</header>
+
+
+
+<div class="main">
+  <h1 class="mt-3">Tous les événements à venir : </h1>
+  <div class="container">
+    <div class="row justify-content-center">
+      
+          
+      
+          
+              
+                  
+        <div class="card col-12 col-sm-6 col-md-4 col-lg-3 mt-5 ml-1" style="width: 18rem;">
+            <a href="/events/event1/">
+                
+                    <img src="/events/img/event1.jpeg" class="card-img-top"  alt="Event1">
+                
+            </a>    
+            <div class="card-body">
+                <h5 class="card-title">Event1</h5>
+                <p>Date : Wednesday, Sep 23, 2020</p>
+                <p>Label : </p>
+                <hr/>
+                <p class="card-text"></p>
+                
+                <a class="btn btn-outline-info" href="/events/event1/">En savoir plus</a>
+            </div>
+        </div>
+    
+              
+          
+      
+          
+              
+          
+      
+          
+              
+          
+      
+          
+              
+                  
+        <div class="card col-12 col-sm-6 col-md-4 col-lg-3 mt-5 ml-1" style="width: 18rem;">
+            <a href="/events/event4/">
+                
+                    <img src="/events/img/event3.jpeg" class="card-img-top"  alt="Event4">
+                
+            </a>    
+            <div class="card-body">
+                <h5 class="card-title">Event4</h5>
+                <p>Date : Thursday, Sep 23, 2021</p>
+                <p>Label : </p>
+                <hr/>
+                <p class="card-text"></p>
+                
+                <a class="btn btn-outline-info" href="/events/event4/">En savoir plus</a>
+            </div>
+        </div>
+    
+              
+          
+      
+    </div>
+  </div>
+  
+  <hr class="m-5"/>
+
+<footer class="container-fluide bg-light pt-5 pb-5">
+  <div class="row">
+    <div class="col-5 pl-5">
+      <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2639.3827923172576!2d7.747803850873571!3d48.58336902788436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4796c852318fea29%3A0xa2ac695fe3d9df6f!2s4%20Rue%20du%20D%C3%B4me%2C%2067000%20Strasbourg!5e0!3m2!1sfr!2sfr!4v1568902522570!5m2!1sfr!2sfr" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe></p>
+    </div>
+    <div class="col-6 ml-5 text-info d-flex align-items-center">
+      <div>
+        <h2>Mairie de Paris</h2>
+        <p>4 rue du Dôme</p>
+        <p>67000 Strasbourg</p>
+        <a href="tel:0677889922">0677889922</a>    
+      </div>
+    </div>
+  </div>
+
+    <div class="rowpl-5">
+  <div class="col-8 ml-3">
+  <form action="https://formspree.io/manuel.konrath@gmail.com" method="POST">
+    <div>
+    <div class="form-group row">
+      <label for="senderMail" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="senderMail" placeholder="Email" name="Email">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="subject" class="col-sm-2 col-form-label">Subject</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="subject" placeholder="subject" name ="Subject">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="message" class="col-sm-2 col-form-label">Message</label>
+      <div class="col-sm-10">
+        <textarea class="form-control" id="message" name="Message"></textarea>
+    </div>
+    <div class="form-group row ">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary">Send</button>
+      </div>
+    </div>
+  </div>
+  </form>
+</div>
+</div>
+</div>
+<div class="row d-flex justify-content-center">
+  <p class="col-3">COPYRIGHT 2019 - Epitech ... </p>
+</footer>
+</div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js" integrity="sha256-FtWfRI+thWlNz2sB3SJbwKx5PgMyKIVgwHCTwa3biXc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+
+<script>
+let vuesearch = new Vue({
+    el: '#search', 
+    data: {
+        txt: '', 
+        timeoutID: 0, 
+        showresult: false, 
+        result: {}, 
+        bdd: [] 
+        },
+    mounted: function() {
+        
+        axios.get('http:\/\/example.org\/search\/index.json')
+        .then(function (response) {
+            vuesearch.bdd = response.data.results;
+            })
+        .catch(function (error) {
+            console.log(error);
+            });
+        },
+    methods: {
+        close: function() {
+            
+            
+            setTimeout(function() {
+                vuesearch.showresult = false;
+                vuesearch.txt = '';
+                }, 300);
+            },
+        search: function() {
+            
+            clearTimeout(this.timeoutID);
+            this.timeoutID = setTimeout(this.dosearch, 500);
+            },
+        dosearch: function() {
+            
+            this.result = []; 
+            let words = this.txt.split(' '); 
+            let words2 = []; 
+            words.forEach(function(element) { 
+                if(element) {words2.push(element);}
+                });
+            let r;
+            let resultmp;
+            words2.forEach(function(e) { 
+                r = vuesearch.bdd.filter(p => p.content.indexOf(e.toLowerCase()) !== -1);
+                if(vuesearch.result.length===0) {vuesearch.result = r.slice(); return;}
+                resultmp = [];
+                vuesearch.result.forEach(function(all1) {
+                    r.forEach(function(all2) { 
+                        if(all1.url===all2.url) {resultmp.push(all1);}
+                        });
+                    });
+                vuesearch.result = resultmp.slice();
+                });
+            this.result = this.result.slice(0, 10); 
+            this.showresult = (this.result.length>0); 
+            } 
+        } 
+    }); 
+</script>
+  </body>
+
+</html>
+
+</div>

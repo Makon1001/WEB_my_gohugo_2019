@@ -1,14 +1,5 @@
 {{ range .Site.RegularPages}}
   {{ if eq .Type "events"}}
-  <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title"><a href="{{ .URL }}">{{ .Title }}</a></h5>
-        <h6>Date : {{.Params.when}}</h6>
-        <p>Label : {{.Params.address.label}}</p>
-        <p class="card-text">{{.Params.description}}</p>
-        <a href="{{.Permalink}}" class="btn btn-primary">Learn more ... </a>
-      </div>
-    </div>
+  {{partial "events.html" .}}
 {{ end }}
 {{ end }}

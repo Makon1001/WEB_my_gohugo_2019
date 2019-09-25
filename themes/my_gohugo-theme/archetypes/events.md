@@ -1,14 +1,16 @@
 ---
-title : ""
+title : "{{ replace .Name "-" " " | title }}"
 address :
   address : ""
   postalCode : 75000
   city : "Paris"
   label : ""
-when : 2016-06-24T1904-07:00
+when : {{.Date}}
 description : ""
-photos : ""
+photos : ["favicon.ico", "favicon.ico"]
 draft: true
 important : true
 association : ""
+archives : "archived"
+upcomings : "upcoming"
 ---

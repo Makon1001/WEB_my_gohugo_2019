@@ -2,6 +2,6 @@
 firstName : "Tintin"
 lastName : "Dupuis"
 role : "Deputy"
-photo : "default.jpg"
+photo : "melenchon.jpeg"
 draft: true
 ---

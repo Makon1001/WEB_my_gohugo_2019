@@ -5,8 +5,9 @@ theme         = "my_gohugo-theme"
 themesDir     = "./themes"
 
 [params]
-  title       = "Mairie de Strasbourg"
-  subtitle    = "My Hugo Site"
+  title       = "Mairie de Paris"
+  subtitle    = "Retrouvez tous nos evenements"
+  textColor = "text-light"
 
   cover       = "img/jumbotron.jpg"
   description = "Here is a description of your site."
@@ -21,6 +22,13 @@ themesDir     = "./themes"
   telNumber     = "0677889922"
 
   mail = "manuel.konrath@gmail.com"
+
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  archive = "archives"
+  upcoming = "upcomings"
 
 
 [[menu.main]]
@@ -56,13 +64,13 @@ themesDir     = "./themes"
   [[menu.main]]
     name = "Upcoming Events"
     parent = "events"
-    url = "/events/upcoming_events"
+    url = "/upcomings/upcoming"
     weight = 50
 
   [[menu.main]]
     name = "Archived Events"
     parent = "events"
-    url = "/archived-Events"
+    url = "/archives/archived"
     weight = 45
 
   [[menu.main]]

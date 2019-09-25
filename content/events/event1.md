@@ -4,13 +4,16 @@ address :
   address : ""
   postalCode : 75000
   city : "Paris"
-  label : "Maire du XVII"
-when : 2017-03-03T14:15:59-06:00
+  label : "Hôtel de ville Paris 8"
+when : 2020-09-23T14:41:17+02:00
 description : ""
-photos : "favicon.ico"
+photos : "event1.jpeg"
 draft: false
 important : true
-association : "asso1"
-
+association : ""
+archives : "archived"
+upcomings : "upcoming"
 ---
-Event 1 un evenement pas comme les autres 
+
+# Evenement 1 
+C'est la fête au village ! 

@@ -6,7 +6,25 @@
     {
     "url": "http://example.org/events/event1/",
     "title": "Event1",
-    "content": "event un evenement pas les autres "
+    "content": "evenement c&rsquo;est la fête au village "
+    },
+
+    {
+    "url": "http://example.org/events/event2/",
+    "title": "Event2",
+    "content": "un marathon 20km "
+    },
+
+    {
+    "url": "http://example.org/events/event3/",
+    "title": "Event3",
+    "content": ""
+    },
+
+    {
+    "url": "http://example.org/events/event4/",
+    "title": "Event4",
+    "content": ""
     }
 
 ]}

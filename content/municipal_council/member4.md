@@ -2,6 +2,6 @@
 firstName : "Lou"
 lastName : "Louve"
 role : "Deputy"
-photo : "default.jpg"
+photo : "trump.jpeg"
 draft: true
 ---

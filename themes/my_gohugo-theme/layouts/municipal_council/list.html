@@ -2,10 +2,33 @@
 
 {{ partial "header.html" . }}
 
-{{ range .Site.RegularPages}}
-  {{ if eq .Type "municipal_council"}}
-   <li><a href="{{ .Permalink }}">{{ .Params.firstName }} {{upper .Params.lastName}}</a></li>
-  {{ end }}
-{{ end }}
 
-{{ partial "footer.html" .}}
+<div class="main">
+    <h1 class="mt-3">Tous les membres du conseil municipal :</h1>
+    <div class="container">
+        <div class="row justify-content-center">
+          {{ range .Site.RegularPages}}
+            {{ if eq .Type "municipal_council"}}
+            <div class="card" style="width: 18rem;">
+              {{if .Params.photo}}
+                <img src="/municipal_council//img/{{.Params.photo}}" class="card-img-top" alt="{{ .Params.firstName }} {{upper .Params.lastName}}">
+              {{else}}
+                <img src="/img/default/defaultAvatar.jpeg" class="card-img-top" alt="default avatar">
+              {{end}}
+                <div class="card-body">
+                  <h5 class="card-title">{{ .Params.firstName }} {{upper .Params.lastName}}</h5>
+                  <p class="card-text">Rôle : {{.Params.role}}</p>
+                  <a href="{{ .URL }}" class="btn btn-outline-info">En savoir plus</a>
+                </div>
+              </div>
+              {{ end }}
+            {{ end }}
+              
+          </div>
+    </div>
+
+
+
+
+  {{ partial "footer.html" .}}
+</div>

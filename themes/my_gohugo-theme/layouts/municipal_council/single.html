@@ -2,6 +2,24 @@
 
 {{ partial "header.html" . }}
 
-<h1>{{ .Params.firstName }} {{ .Params.lastName }}</h1>
-
-{{ partial "footer.html" .}}
+<div class="main">
+    <h1>{{ .Params.firstName }} {{ .Params.lastName }}</h1>
+            <div class="container mt-5">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-12">
+                        <h1>    
+                            {{if .Params.photo}}
+                                <img src="/municipal_council//img/{{.Params.photo}}"  alt="{{ .Params.firstName }} {{upper .Params.lastName}}">
+                              {{else}}
+                                <img src="/img/default/defaultAvatar.jpeg" style="width: 8rem;" alt="default avatar">
+                              {{end}}</h1>
+                        <p>Rôle : {{ .Params.role}}</p>
+                        <hr>
+                    </div>
+                    <div class="col-12">
+                            <a class="btn btn-outline-info" href="/municipal_council">Retour</a>
+                    </div>
+                </div>
+            </div>
+    {{ partial "footer.html" .}}
+</div>

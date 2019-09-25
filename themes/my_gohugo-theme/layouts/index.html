@@ -2,28 +2,33 @@
 
 {{ partial "header.html" . }}
 
-
+<div class="main">
 <div class="container-fluid">
+  <h1 class="mt-3">Les événements à venir : </h1>
   <div class="row" >
-    <div class="col-3 p-0 aside">
-      {{ partial "aside.html" . }}
-    </div>
-    {{ range first 10 (where .Site.RegularPages "Section" "events") }}
-     <div class="card" style="width: 18rem;">
-        <img src="/img/{{.Params.photos}}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title"><a href="{{ .URL }}">{{.Title }}</a></h5>
-          <p class="card-text">
-            Label : {{.Params.Address.label}} <br>
-            When : {{dateFormat "Monday, Jan 2, 2006" .Params.when}}
-            {{if .Params.association }}
-            <p>Association : {{.Params.Association}}</p>
-            {{end}}
-          </p>
-          <a href="{{ .URL }}" class="btn btn-primary">Learn more ... </a>
+    {{ range first 10 (sort (where .Site.RegularPages "Section" "events") ".Params.when")}}
+      <a href="{{ .URL }}">
+      <div class="card col-12 col-sm-6 col-md-4 col-lg-3 mt-5 ml-1" style="width: 18rem;">
+        {{if .Params.photos}}
+          <img src="/events/img/{{.Params.photos}}" class="card-img-top" alt="{{.Title}}">
+        {{else}}
+          <img src="/img/default/defaultEvent.jpeg" class="card-img-top" alt="default picture">
+        {{end}}
+          <div class="card-body">
+            <h5 class="card-title"><a href="{{ .URL }}">{{.Title }}</a></h5>
+            <p class="card-text">
+              Label : {{.Params.Address.label}} <br>
+              When : {{dateFormat "Monday, Jan 2, 2006" .Params.when}}
+              {{if .Params.association }}
+                <p>Association : <a href="/associations/{{.Params.Association}}">{{.Params.Association}}</a></p>
+              {{end}}
+            </p>
+            <a href="{{ .URL }}" class="btn btn-outline-info">Learn more ... </a>
+          </div>
         </div>
-      </div>
-  {{end}}
+      </a>
+      {{end}}
   </div>
 </div>
 {{ partial "footer.html" .}}
+</div>

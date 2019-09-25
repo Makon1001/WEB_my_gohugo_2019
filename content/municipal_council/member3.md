@@ -2,6 +2,6 @@
 firstName : "Titi"
 lastName : "Grominet"
 role : "Deputy"
-photo : "default.jpg"
+photo : "merkel.jpeg"
 draft: true
 ---

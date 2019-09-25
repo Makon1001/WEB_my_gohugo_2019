@@ -4,12 +4,14 @@ address :
   address : ""
   postalCode : 75000
   city : "Paris"
-  label : ""
-when : 2019-03-03T14:15:59-06:00
+  label : "Hôtel de ville Paris 9"
+when : 2019-09-23T14:41:20+02:00
 description : ""
-photos : ""
-draft: true
+photos : "event2.jpeg"
+draft: false
 important : true
-association : ""
+association : "asso2"
+archives : "archived"
+upcomings : "upcoming"
 ---
-Coucou 
+un marathon 20km 

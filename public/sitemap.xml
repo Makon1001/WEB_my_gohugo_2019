@@ -13,6 +13,14 @@
   </url>
   
   <url>
+    <loc>http://example.org/archives/archived/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/archives/</loc>
+  </url>
+  
+  <url>
     <loc>http://example.org/categories/</loc>
   </url>
   
@@ -21,11 +29,31 @@
   </url>
   
   <url>
+    <loc>http://example.org/events/event2/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/events/event3/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/events/event4/</loc>
+  </url>
+  
+  <url>
     <loc>http://example.org/events/</loc>
   </url>
   
   <url>
     <loc>http://example.org/tags/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/upcomings/upcoming/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/upcomings/</loc>
   </url>
   
 </urlset>

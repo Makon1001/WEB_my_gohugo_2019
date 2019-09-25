@@ -2,10 +2,14 @@
 
 {{ partial "header.html" . }}
 
+<div class="main">
+    <h1 class="mt-3">Tous les événements : </h1>
+    <div class="container">
+        <div class="row justify-content-center">
+            {{ partial "allEvents.html" .}}
+        </div>
+    </div>
 
-{{ $url :=  path.Dir  .Permalink}}
-{{ $url }}
 
-{{ partial "allEvents.html" .}}
-
-{{ partial "footer.html" .}}
+    {{ partial "footer.html" .}}
+</div>
